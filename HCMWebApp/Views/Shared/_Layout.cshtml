@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HRMS Application</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HCMWebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="navbar-brand fw-bold text-primary" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-people-fill me-2"></i> HR-Management
+                </a>
+
+                <!-- Toggler -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+
+                        <!-- Masters Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#" id="mastersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-briefcase-fill me-1"></i> Masters
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="mastersDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Jobs" asp-action="Index">
+                                        <i class="bi bi-briefcase-fill me-1"></i> Manage Positions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Masters" asp-action="Index">
+                                        <i class="bi bi-building me-1"></i> Master List
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Masters" asp-action="CreateMaster">
+                                        <i class="bi bi-building me-1"></i> Create Master 
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+                        <!-- Candidate Manager -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#" id="candidateDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-plus-fill me-1"></i> Candidate Manager
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="candidateDropdown">
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Candidate" asp-action="Upsert"><i class="bi bi-person-plus me-1"></i> Create Candidate</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Candidate" asp-action="Index"><i class="bi bi-list-task me-1"></i> Candidate List</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Employee" asp-action="Index"><i class="bi bi-people-fill me-1"></i> Onboarding</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Employee" asp-action="Upsert"><i class="bi bi-people-fill me-1"></i> Create New Employee</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Employee" asp-action="IndexEmployee"><i class="bi bi-person-badge-fill me-1"></i> Employee Manager</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Finance & Components Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#" id="financeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-journal-album me-1"></i> Finance & Components
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="financeDropdown">
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Accounts" asp-action="Index"><i class="bi bi-journal-album me-1"></i> Manage Accounts</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Ledger" asp-action="Index"><i class="bi bi-journals me-1"></i> Manage Ledger</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="PayComponent" asp-action="Index"><i class="bi bi-list-task me-1"></i> Component List</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="PayComponent" asp-action="Create"><i class="bi bi-plus-circle me-1"></i> Create New Component</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Tasks & Timesheet Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#" id="taskDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-list-check me-1"></i> Tasks & Timesheet
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="taskDropdown">
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="TaskItem" asp-action="Index"><i class="bi bi-check2-square me-1"></i> Manage Task</a></li>
+                                <li><a class="dropdown-item" asp-area="Employee" asp-controller="TimeSheetEntry" asp-action="Index"><i class="bi bi-clock-history me-1"></i> Manage Timesheet</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - HRMS Application - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

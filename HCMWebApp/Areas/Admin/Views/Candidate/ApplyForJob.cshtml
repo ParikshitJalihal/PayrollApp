@@ -1,0 +1,59 @@
+﻿@model HCM.Models.Models.Candidate
+
+@{
+    ViewData["Title"] = "Apply for Job";
+}
+
+<h2 class="mb-4">Apply for Job</h2>
+
+<form asp-action="Create" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label asp-for="CadidateName" class="form-label"></label>
+        <input asp-for="CadidateName" class="form-control" />
+        <span asp-validation-for="CadidateName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SkillSets" class="form-label"></label>
+        <input asp-for="SkillSets" class="form-control" />
+        <span asp-validation-for="SkillSets" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="InterviewDate" class="form-label"></label>
+        <input asp-for="InterviewDate" type="date" class="form-control" />
+        <span asp-validation-for="InterviewDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Interviewer" class="form-label"></label>
+        <input asp-for="Interviewer" class="form-control" />
+        <span asp-validation-for="Interviewer" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="JobDescription" class="form-label"></label>
+        <textarea asp-for="JobDescription" class="form-control"></textarea>
+        <span asp-validation-for="JobDescription" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="JobId" class="form-label">Select Job</label>
+        <select asp-for="JobId" asp-items="ViewBag.JobList" class="form-select"></select>
+        <span asp-validation-for="JobId" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="IsPreviouslyAttended" class="form-check-input" />
+        <label asp-for="IsPreviouslyAttended" class="form-check-label"></label>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="IsUnattended" class="form-check-input" />
+        <label asp-for="IsUnattended" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        <i class="bi bi-send"></i> Submit Application
+    </button>
+</form>

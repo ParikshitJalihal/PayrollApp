@@ -1,0 +1,43 @@
+﻿@using HCM.Models.Models
+@model IEnumerable<LedgerEntry>
+
+@{
+    ViewData["Title"] = "Ledger Entries";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Ledger Entries</h2>
+        <a asp-action="Create" class="btn btn-success btn-lg shadow-sm">
+            <i class="bi bi-plus-circle"></i> Create New Entry
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <table class="table table-hover table-bordered align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                        <th>Account</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var entry in Model)
+                    {
+                        <tr>
+                            <td>@entry.EntryDate.ToShortDateString()</td>
+                            <td>@entry.Description</td>
+                            <td class="text-danger fw-bold">@entry.Debit</td>
+                            <td class="text-success fw-bold">@entry.Credit</td>
+                            <td>@entry.Account?.AccountName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

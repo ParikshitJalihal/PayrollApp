@@ -1,0 +1,274 @@
+﻿@model HCM.Models.ViewModels.EmployeeVM
+
+<h2 class="mb-4 text-center text-primary fw-bold">
+    Create Employee Profile
+</h2>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        <form asp-action="EmployeeUpsert" method="post" class="needs-validation" novalidate id="employeeForm">
+
+            <!-- Tab Navigation -->
+            <ul class="nav nav-tabs pastel-tabs mb-3" id="employeeTab" role="tablist">
+                <li class="nav-item"><button class="nav-link active" id="onboarding-tab" data-bs-toggle="tab" data-bs-target="#onboarding" type="button">Onboarding</button></li>
+                <li class="nav-item"><button class="nav-link" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button">Personal</button></li>
+                <li class="nav-item"><button class="nav-link" id="job-tab" data-bs-toggle="tab" data-bs-target="#job" type="button">Job</button></li>
+                <li class="nav-item"><button class="nav-link" id="salary-tab" data-bs-toggle="tab" data-bs-target="#salary" type="button">Salary</button></li>
+                <li class="nav-item"><button class="nav-link" id="communication-tab" data-bs-toggle="tab" data-bs-target="#communication" type="button">Communication</button></li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="employeeTabContent">
+
+                <!-- Onboarding -->
+                <div class="tab-pane fade show active" id="onboarding">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.EmployeeCode" class="form-label"></label>
+                            <input asp-for="Employee.EmployeeCode" class="form-control soft-input required-field" />
+                            <span asp-validation-for="Employee.EmployeeCode" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.JoiningDate" class="form-label"></label>
+                            <input asp-for="Employee.JoiningDate" type="date"
+                                   class="form-control soft-input required-field"
+                                   id="dobField" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="Employee.JoiningDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal -->
+                <div class="tab-pane fade" id="personal">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.EmployeeName" class="form-label"></label>
+                            <input asp-for="Employee.EmployeeName" class="form-control soft-input required-field" />
+                            <span asp-validation-for="Employee.EmployeeName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="Employee.EmployeeDob" class="form-label"></label>
+                            <input asp-for="Employee.EmployeeDob" type="date"
+                                   class="form-control soft-input required-field"
+                                   id="dobField" value="@DateTime.Today.AddYears(-18).ToString("yyyy-MM-dd")"
+                                   max="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="Employee.EmployeeDob" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="Employee.EmployeeAge" class="form-label"></label>
+                            <input asp-for="Employee.EmployeeAge" type="number"
+                                   class="form-control soft-input required-field"
+                                   id="ageField" readonly />
+                            <span asp-validation-for="Employee.EmployeeAge" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="Employee.Gender" class="form-label"></label>
+                            <div class="col-md-3 mb-3">
+                                <label asp-for="Employee.Gender" class="form-label"></label>
+                                <select asp-for="Employee.Gender" asp-items="Model.GenderList" class="form-select soft-input required-field">
+                                    <option value="">-- Select Gender --</option>
+                                </select>
+                                <span asp-validation-for="Employee.Gender" class="text-danger"></span>
+                            </div>
+
+                            <span asp-validation-for="Employee.Gender" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Communication -->
+                <div class="tab-pane fade" id="communication">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.Email" class="form-label"></label>
+                            <input asp-for="Employee.Email" type="email" class="form-control soft-input required-field" />
+                            <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.Phone" class="form-label"></label>
+                            <input asp-for="Employee.Phone" class="form-control soft-input required-field" />
+                            <span asp-validation-for="Employee.Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.EmployeeStatus" class="form-label"></label>
+                            <select asp-for="Employee.EmployeeStatus" class="form-select soft-input required-field">
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                            <span asp-validation-for="Employee.EmployeeStatus" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job -->
+                <!-- Job -->
+                <div class="tab-pane fade" id="job" role="tabpanel">
+                    <div class="mb-3">
+                        <label asp-for="Employee.JobId" class="form-label"></label>
+                        <select asp-for="Employee.JobId" asp-items="@Model.JobList" class="form-select soft-input required-field">
+                            <option value="">-- Select Job Position --</option>
+                        </select>
+                        <span asp-validation-for="Employee.JobId" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Employee.isManager" class="form-label"></label>
+                        <select asp-for="Employee.isManager" asp-items="Model.ReportingManagerList" class="form-select soft-input">
+                            <option value="">-- Select Designation --</option>
+                        </select>
+                        <span asp-validation-for="Employee.isManager" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.EmployeeManager" class="form-label"></label>
+                            <input asp-for="Employee.EmployeeManager" type="number" class="form-control soft-input" />
+                            <span asp-validation-for="Employee.EmployeeManager" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.isManager" class="form-label"></label>
+                            <select asp-for="Employee.isManager" class="form-select soft-input">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            <span asp-validation-for="Employee.isManager" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3">
+                            <label asp-for="Employee.DesignationId" class="form-label"></label>
+                            <select asp-for="Employee.DepartmentId" asp-items="Model.DesignationList" class="form-select soft-input">
+                                <option value="">-- Select Designation --</option>
+                            </select>
+                            <span asp-validation-for="Employee.DesignationId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Employee.Department" class="form-label"></label>
+                            <select asp-for="Employee.Department" asp-items="Model.DepartmentList" class="form-select soft-input required-field">
+                                <option value="">-- Select Department --</option>
+                            </select>
+                            <span asp-validation-for="Employee.Department" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <
+                </div>
+
+                <!-- Salary -->
+                <div class="tab-pane fade" id="salary">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.EmployeeCTC" class="form-label"></label>
+                            <input asp-for="Employee.EmployeeCTC" type="number" step="0.01" class="form-control soft-input required-field" />
+                            <span asp-validation-for="Employee.EmployeeCTC" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Employee.EmployeeBasic" class="form-label"></label>
+                            <input asp-for="Employee.EmployeeBasic" type="number" step="0.01" class="form-control soft-input required-field" />
+                            <span asp-validation-for="Employee.EmployeeBasic" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Actions -->
+            <div class="text-center mt-4">
+                <button type="submit" id="createBtn" class="btn btn-soft-primary me-2" disabled>
+                    <i class="bi bi-person-plus"></i> Create Employee
+                </button>
+                <a asp-action="IndexEmployee" class="btn btn-soft-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Employee List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Enable button only when required fields are filled
+        function checkRequiredFields() {
+            let allFilled = true;
+            document.querySelectorAll('.required-field').forEach(input => {
+                if (!input.value) {
+                    allFilled = false;
+                }
+            });
+            document.getElementById('createBtn').disabled = !allFilled;
+        }
+
+        document.querySelectorAll('.required-field').forEach(input => {
+            input.addEventListener('input', checkRequiredFields);
+        });
+        $(document).ready(function () {
+            // Bind today's date by default
+            let today = new Date();
+            let formattedToday = today.toISOString().split('T')[0];
+            $("#dobField").val(formattedToday);
+
+            // Validation: must be at least 18 years old
+            $("#dobField").on("change", function () {
+                let dob = new Date($(this).val());
+                let today = new Date();
+                let age = today.getFullYear() - dob.getFullYear();
+                let m = today.getMonth() - dob.getMonth();
+
+                if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                    age--;
+                }
+
+                if (age < 18) {
+                    alert("Employee must be at least 18 years old.");
+                    $(this).val(""); // clear invalid DOB
+                }
+            });
+        });
+        
+        $(document).ready(function () {
+            // Default DOB = 18 years ago
+            let defaultDob = new Date();
+            defaultDob.setFullYear(defaultDob.getFullYear() - 18);
+            let formattedDob = defaultDob.toISOString().split('T')[0];
+            $("#dobField").val(formattedDob);
+
+            // Function to calculate age
+            function calculateAge(dob) {
+                let today = new Date();
+                let age = today.getFullYear() - dob.getFullYear();
+                let m = today.getMonth() - dob.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                    age--;
+                }
+                return age;
+            }
+
+            // Initial binding of age from default DOB
+            $("#ageField").val(calculateAge(defaultDob));
+
+            // Recalculate age whenever DOB changes
+            $("#dobField").on("change", function () {
+                let dob = new Date($(this).val());
+                let age = calculateAge(dob);
+
+                if (age < 18) {
+                    alert("Employee must be at least 18 years old.");
+                    $(this).val(""); // clear invalid DOB
+                    $("#ageField").val("");
+                } else {
+                    $("#ageField").val(age);
+                }
+            });
+        });
+
+ 
+
+    </script>
+}

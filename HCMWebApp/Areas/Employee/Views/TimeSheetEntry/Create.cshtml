@@ -1,0 +1,42 @@
+﻿@model HCM.Models.ViewModels.TimeSheetEntryView
+
+<form asp-area="Employee" method="post" asp-action="Create" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label asp-for="EntryDate" class="form-label"></label>
+        <input asp-for="EntryDate" class="form-control rounded-3 shadow-sm" type="date" />
+        <div class="invalid-feedback">Please select a date.</div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LogHours" class="form-label">Log Hours</label>
+        <input asp-for="LogHours" class="form-control rounded-3 shadow-sm" type="time" step="1800" />
+        <div class="form-text">Enter hours and minutes (e.g., 02:30).</div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TaskName" class="form-label">Task</label>
+        <select asp-for="TaskName" asp-items="Model.TaskList" class="form-select rounded-3 shadow-sm"></select>
+        <div class="invalid-feedback">Please select a task.</div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SubTask" class="form-label"></label>
+        <input asp-for="SubTask" class="form-control rounded-3 shadow-sm" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control rounded-3 shadow-sm" rows="3"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        <a asp-action="Index" class="btn btn-outline-secondary rounded-pill px-4">Back to List</a>
+        <button type="submit" class="btn btn-primary rounded-pill px-4">Save Entry</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

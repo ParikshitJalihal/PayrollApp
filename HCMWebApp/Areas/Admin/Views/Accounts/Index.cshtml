@@ -1,0 +1,52 @@
+﻿@using HCM.Models.Models
+@model IEnumerable<Account>
+
+@{
+    ViewData["Title"] = "Accounts";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Accounts</h2>
+        <a asp-action="Create" class="btn btn-success btn-lg shadow-sm">
+            <i class="bi bi-plus-circle"></i> Create New Account
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <table class="table table-hover table-bordered align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Account Type</th>
+                        <th>Ledger Entries</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var account in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@account.AccountName</td>
+                            <td>
+                                <span class="badge bg-info text-dark">
+                                    @account.AccountType
+                                </span>
+                            </td>
+                            <td>
+                                @if (account.LedgerEntries != null && account.LedgerEntries.Any())
+                                {
+                                    <span class="text-success fw-bold">@account.LedgerEntries.Count()</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No entries</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

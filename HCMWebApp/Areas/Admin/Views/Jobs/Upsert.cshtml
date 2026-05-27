@@ -1,0 +1,110 @@
+﻿@model HCM.Models.Models.Jobs
+
+@{
+    bool isEdit = Model?.JobId > 0;
+    ViewData["Title"] = isEdit ? "Edit Job" : "Create Job";
+}
+
+<h2 class="mb-4 text-center text-primary fw-bold">
+    @(isEdit ? "Edit Job Profile" : "Create a New Job")
+</h2>
+
+<div class="card upsert-card shadow-sm border-0">
+    <div class="card-body">
+        <form asp-action="Upsert" method="post" class="needs-validation" novalidate>
+            @if (isEdit)
+            {
+                @Html.HiddenFor(m => m.JobId)
+            }
+
+            <div class="mb-3">
+                <label asp-for="JobName" class="form-label"></label>
+                <input asp-for="JobName" class="form-control soft-input" />
+                <span asp-validation-for="JobName" class="text-danger"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="JobStatus" class="form-check-input" />
+                <label asp-for="JobStatus" class="form-check-label"></label>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="JobStatusDescription" class="form-label"></label>
+                <textarea asp-for="JobStatusDescription" class="form-control soft-input"></textarea>
+                <span asp-validation-for="JobStatusDescription" class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-soft-primary me-2">
+                    <i class="bi @(isEdit ? "bi-pencil-square" : "bi-plus-circle")"></i>
+                    @(isEdit ? "Update Position" : "Create a Position")
+                </button>
+                <a asp-action="Index" class="btn btn-soft-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<style>
+    body {
+        background: #f8fafc;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        color: #5a6ea6;
+    }
+
+    .upsert-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .soft-input {
+        border-radius: 10px;
+        border: 1px solid #d6d9e6;
+        transition: all 0.3s ease;
+    }
+
+        .soft-input:focus {
+            border-color: #a3bffa;
+            box-shadow: 0 0 8px rgba(163,191,250,0.5);
+        }
+
+    .btn-soft-primary {
+        background-color: #a3bffa;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 18px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-soft-primary:hover {
+            background-color: #7b9cf5;
+        }
+
+    .btn-soft-secondary {
+        background-color: #d6d9e6;
+        border: none;
+        color: #333;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 18px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-soft-secondary:hover {
+            background-color: #b8bccf;
+        }
+</style>

@@ -1,0 +1,17 @@
+D:\HRManagement\HCMWebApp\HCM.Services\bin\Debug\net8.0\HCM.Services.deps.json
+D:\HRManagement\HCMWebApp\HCM.Services\bin\Debug\net8.0\HCM.Services.dll
+D:\HRManagement\HCMWebApp\HCM.Services\bin\Debug\net8.0\HCM.Services.pdb
+D:\HRManagement\HCMWebApp\HCM.Services\bin\Debug\net8.0\HCM.DataAccess.dll
+D:\HRManagement\HCMWebApp\HCM.Services\bin\Debug\net8.0\HCM.Models.dll
+D:\HRManagement\HCMWebApp\HCM.Services\bin\Debug\net8.0\HCM.DataAccess.pdb
+D:\HRManagement\HCMWebApp\HCM.Services\bin\Debug\net8.0\HCM.Models.pdb
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.csproj.AssemblyReference.cache
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.AssemblyInfoInputs.cache
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.AssemblyInfo.cs
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.csproj.CoreCompileInputs.cache
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Serv.BB6D75CD.Up2Date
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.dll
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\refint\HCM.Services.dll
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.pdb
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\ref\HCM.Services.dll

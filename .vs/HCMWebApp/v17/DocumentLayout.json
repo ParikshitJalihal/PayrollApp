@@ -1,0 +1,501 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\HRManagement\\HCMWebApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\controllers\\paycomponentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\controllers\\paycomponentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.services\\implementations\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|solutionrelative:hcm.services\\implementations\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.services\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|solutionrelative:hcm.services\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.services\\implementations\\ledgerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|solutionrelative:hcm.services\\implementations\\ledgerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B44F0AA3-E10C-4662-8FF8-28196785E3DA}|HCM.Services\\HCM.Services.csproj|solutionrelative:hcm.services\\interfaces\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\views\\paycomponent\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\views\\paycomponent\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\controllers\\candidatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\controllers\\candidatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\views\\employee\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\views\\employee\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\views\\candidate\\upsert.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\views\\candidate\\upsert.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.models\\viewmodels\\employeevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|solutionrelative:hcm.models\\viewmodels\\employeevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.dataaccess\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|solutionrelative:hcm.dataaccess\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\views\\employee\\indexemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\views\\employee\\indexemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\views\\employee\\upsert.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\views\\employee\\upsert.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.models\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|solutionrelative:hcm.models\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\employee\\controllers\\timesheetentrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\employee\\controllers\\timesheetentrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\employee\\views\\timesheetentry\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\employee\\views\\timesheetentry\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.models\\viewmodels\\timesheetentryview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|solutionrelative:hcm.models\\viewmodels\\timesheetentryview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\employee\\views\\timesheetentry\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\employee\\views\\timesheetentry\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.dataaccess\\repository\\taskitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|solutionrelative:hcm.dataaccess\\repository\\taskitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\views\\taskitem\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\views\\taskitem\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\controllers\\taskitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\controllers\\taskitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.dataaccess\\repository\\irepository\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|solutionrelative:hcm.dataaccess\\repository\\irepository\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.dataaccess\\repository\\irepository\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|solutionrelative:hcm.dataaccess\\repository\\irepository\\itaskrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.dataaccess\\repository\\irepository\\itimesheetrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|solutionrelative:hcm.dataaccess\\repository\\irepository\\itimesheetrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.models\\models\\timesheetentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|solutionrelative:hcm.models\\models\\timesheetentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.models\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5597DBE0-BBD1-4DAC-8A05-BD790F7BFA9C}|HCM.Models\\HCM.Models.csproj|solutionrelative:hcm.models\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|d:\\hrmanagement\\hcmwebapp\\hcmwebapp\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B3CD931-5A85-4322-9DA7-14681DB9A94B}|HCMWebApp\\HCMWebApp.csproj|solutionrelative:hcmwebapp\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|d:\\hrmanagement\\hcmwebapp\\hcm.dataaccess\\repository\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{086584C8-6526-4466-81A4-C749E0690987}|HCM.DataAccess\\HCM.DataAccess.csproj|solutionrelative:hcm.dataaccess\\repository\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Program.cs",
+              "RelativeDocumentMoniker": "HCMWebApp\\Program.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Program.cs",
+              "RelativeToolTip": "HCMWebApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T03:26:54.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PayComponentController.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\PayComponentController.cs",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Controllers\\PayComponentController.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\PayComponentController.cs",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Controllers\\PayComponentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T03:26:01.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Interfaces\\IAccountService.cs",
+              "RelativeDocumentMoniker": "HCM.Services\\Interfaces\\IAccountService.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Interfaces\\IAccountService.cs",
+              "RelativeToolTip": "HCM.Services\\Interfaces\\IAccountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T03:18:28.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LedgerService.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Implementations\\LedgerService.cs",
+              "RelativeDocumentMoniker": "HCM.Services\\Implementations\\LedgerService.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Implementations\\LedgerService.cs",
+              "RelativeToolTip": "HCM.Services\\Implementations\\LedgerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T03:18:23.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Implementations\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "HCM.Services\\Implementations\\EmployeeService.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Implementations\\EmployeeService.cs",
+              "RelativeToolTip": "HCM.Services\\Implementations\\EmployeeService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAwwEcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T03:18:07.595Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IEmployeeService.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Interfaces\\IEmployeeService.cs",
+              "RelativeDocumentMoniker": "HCM.Services\\Interfaces\\IEmployeeService.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Services\\Interfaces\\IEmployeeService.cs",
+              "RelativeToolTip": "HCM.Services\\Interfaces\\IEmployeeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T03:17:47.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\PayComponent\\Index.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Views\\PayComponent\\Index.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\PayComponent\\Index.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Views\\PayComponent\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T03:17:06.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Controllers\\EmployeeController.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAADwv2wAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T20:55:21.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CandidateController.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\CandidateController.cs",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Controllers\\CandidateController.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\CandidateController.cs",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Controllers\\CandidateController.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAWwIkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T13:00:27.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\Repository.cs",
+              "RelativeDocumentMoniker": "HCM.DataAccess\\Repository\\Repository.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\Repository.cs",
+              "RelativeToolTip": "HCM.DataAccess\\Repository\\Repository.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAjwEIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T02:11:11.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EmployeeVM.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\ViewModels\\EmployeeVM.cs",
+              "RelativeDocumentMoniker": "HCM.Models\\ViewModels\\EmployeeVM.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\ViewModels\\EmployeeVM.cs",
+              "RelativeToolTip": "HCM.Models\\ViewModels\\EmployeeVM.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAzwCIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T21:13:24.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UpSert.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Candidate\\UpSert.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Views\\Candidate\\UpSert.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Candidate\\UpSert.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Views\\Candidate\\UpSert.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T02:45:23.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Employee\\Index.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Views\\Employee\\Index.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Employee\\Index.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Views\\Employee\\Index.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACkAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-27T02:45:53.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IndexEmployee.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Employee\\IndexEmployee.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Views\\Employee\\IndexEmployee.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Employee\\IndexEmployee.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Views\\Employee\\IndexEmployee.cshtml",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAwDoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-26T21:24:18.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TimeSheetEntryController.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Employee\\Controllers\\TimeSheetEntryController.cs",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Employee\\Controllers\\TimeSheetEntryController.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Employee\\Controllers\\TimeSheetEntryController.cs",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Employee\\Controllers\\TimeSheetEntryController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswBkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T15:14:37.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "HCM.Models\\Models\\Employee.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\Models\\Employee.cs",
+              "RelativeToolTip": "HCM.Models\\Models\\Employee.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAcwCcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T21:13:19.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UpSert.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Employee\\UpSert.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Views\\Employee\\UpSert.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\Employee\\UpSert.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Views\\Employee\\UpSert.cshtml",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAkwJ8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-21T02:15:42.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Index.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Index.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Index.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Index.cshtml",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwBoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-21T02:24:51.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Create.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Create.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Create.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Employee\\Views\\TimeSheetEntry\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-18T15:22:49.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "TimeSheetEntryView.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\ViewModels\\TimeSheetEntryView.cs",
+              "RelativeDocumentMoniker": "HCM.Models\\ViewModels\\TimeSheetEntryView.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\ViewModels\\TimeSheetEntryView.cs",
+              "RelativeToolTip": "HCM.Models\\ViewModels\\TimeSheetEntryView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T16:23:55.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ITimeSheetRepository.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\IRepository\\ITimeSheetRepository.cs",
+              "RelativeDocumentMoniker": "HCM.DataAccess\\Repository\\IRepository\\ITimeSheetRepository.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\IRepository\\ITimeSheetRepository.cs",
+              "RelativeToolTip": "HCM.DataAccess\\Repository\\IRepository\\ITimeSheetRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T02:31:45.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ITaskRepository.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\IRepository\\ITaskRepository.cs",
+              "RelativeDocumentMoniker": "HCM.DataAccess\\Repository\\IRepository\\ITaskRepository.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\IRepository\\ITaskRepository.cs",
+              "RelativeToolTip": "HCM.DataAccess\\Repository\\IRepository\\ITaskRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T02:31:55.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\IRepository\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "HCM.DataAccess\\Repository\\IRepository\\IUnitOfWork.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\IRepository\\IUnitOfWork.cs",
+              "RelativeToolTip": "HCM.DataAccess\\Repository\\IRepository\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T16:27:42.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TaskItemRepository.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\TaskItemRepository.cs",
+              "RelativeDocumentMoniker": "HCM.DataAccess\\Repository\\TaskItemRepository.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\TaskItemRepository.cs",
+              "RelativeToolTip": "HCM.DataAccess\\Repository\\TaskItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T16:17:38.572Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TimeSheetEntry.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\Models\\TimeSheetEntry.cs",
+              "RelativeDocumentMoniker": "HCM.Models\\Models\\TimeSheetEntry.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\Models\\TimeSheetEntry.cs",
+              "RelativeToolTip": "HCM.Models\\Models\\TimeSheetEntry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T02:27:50.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TaskItemController.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\TaskItemController.cs",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Controllers\\TaskItemController.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Controllers\\TaskItemController.cs",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Controllers\\TaskItemController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T16:25:17.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\TaskItem\\Index.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Views\\TaskItem\\Index.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\TaskItem\\Index.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Views\\TaskItem\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-18T16:27:49.984Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "TaskItem.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\Models\\TaskItem.cs",
+              "RelativeDocumentMoniker": "HCM.Models\\Models\\TaskItem.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.Models\\Models\\TaskItem.cs",
+              "RelativeToolTip": "HCM.Models\\Models\\TaskItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T02:29:01.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "HCMWebApp\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCMWebApp\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "HCMWebApp\\Areas\\Admin\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-26T12:52:51.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "HCM.DataAccess\\Repository\\UnitOfWork.cs",
+              "ToolTip": "D:\\HRManagement\\HCMWebApp\\HCM.DataAccess\\Repository\\UnitOfWork.cs",
+              "RelativeToolTip": "HCM.DataAccess\\Repository\\UnitOfWork.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-27T16:28:28.608Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+﻿
+
+@model IEnumerable<HCM.Models.Models.Candidate>
+
+@{
+    ViewData["Title"] = "Onboarded Candidates";
+}
+
+<h2 class="mb-4 text-center text-primary fw-bold">Onboarded Candidates</h2>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Candidate Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Job Position</th>
+                    <th>Onboarding Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var candidate in Model)
+                    {
+                        <tr>
+                            <td>@candidate.CadidateName</td>
+                            <td>@candidate.CandidateEmail</td>
+                            <td>@candidate.CandidatePhone</td>
+                            <td>@candidate.Jobs?.JobName</td>
+                            <td>
+                                @if (candidate.OnboardingRequested)
+                                {
+                                    <span class="badge bg-success">Ready for Onboarding</span>
+                                }
+                                
+                                else
+                                {
+                                    <span class="badge bg-secondary">Process Completed</span>
+                                }
+                            </td>
+                            <td>
+                                @if (candidate.OnboardingRequested)
+                                {
+                                    <a asp-controller="Employee"
+                                       asp-action="EmployeeUpsert"
+                                       asp-route-candidateId="@candidate.CandidateId"
+                                       class="btn btn-soft-primary btn-sm">
+                                        <i class="bi bi-person-plus"></i> Create Employee
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">
+                            No candidates flagged for onboarding.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .btn-soft-primary {
+        background: #a3bffa;
+        color: #fff;
+        border-radius: 6px;
+        transition: 0.3s ease;
+    }
+
+        .btn-soft-primary:hover {
+            background: #7da2f7;
+            color: #fff;
+        }
+</style>

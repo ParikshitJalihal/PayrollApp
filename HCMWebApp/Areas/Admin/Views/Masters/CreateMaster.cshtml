@@ -1,0 +1,35 @@
+﻿@model List<SelectListItem>
+
+@{
+    ViewData["Title"] = "Create Master";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary fw-bold mb-3">Create Master</h2>
+
+    <form asp-action="CreateMaster" method="post" class="row g-3">
+        <!-- Dropdown populated from Requesites -->
+        <div class="col-md-6">
+            <label for="ReqId" class="form-label fw-semibold">Select Master Type</label>
+            <select id="ReqId" name="ReqId" class="form-select soft-input required-field"
+                    asp-items="Model">
+                <option value="">-- Select Master --</option>
+            </select>
+        </div>
+
+        <!-- Master Name -->
+        <div class="col-md-6">
+            <label for="MasterName" class="form-label fw-semibold">Master Name</label>
+            <input type="text" id="MasterName" name="MasterName" class="form-control soft-input required-field"
+                   placeholder="Enter Department / Designation/Gender/Asset" />
+        </div>
+
+
+        <!-- Submit -->
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary fw-semibold">
+                <i class="bi bi-plus-circle me-1"></i> Create Master
+            </button>
+        </div>
+    </form>
+</div>

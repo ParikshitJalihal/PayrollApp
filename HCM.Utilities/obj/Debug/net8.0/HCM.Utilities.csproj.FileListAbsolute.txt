@@ -1,0 +1,11 @@
+D:\HRManagement\HCMWebApp\HCM.Utilities\bin\Debug\net8.0\HCM.Utilities.deps.json
+D:\HRManagement\HCMWebApp\HCM.Utilities\bin\Debug\net8.0\HCM.Utilities.dll
+D:\HRManagement\HCMWebApp\HCM.Utilities\bin\Debug\net8.0\HCM.Utilities.pdb
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.AssemblyInfoInputs.cache
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.AssemblyInfo.cs
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.csproj.CoreCompileInputs.cache
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.dll
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\refint\HCM.Utilities.dll
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.pdb
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\ref\HCM.Utilities.dll

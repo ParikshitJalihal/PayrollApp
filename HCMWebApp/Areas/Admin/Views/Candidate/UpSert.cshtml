@@ -1,0 +1,269 @@
+﻿@model HCM.Models.ViewModels.CandidateVM
+
+@{
+    bool isEdit = Model.Candidate?.CandidateId > 0;
+    ViewData["Title"] = isEdit ? "Edit Profile" : "Create Profile";
+}
+
+<h2 class="mb-4 text-center text-primary fw-bold">
+    @(isEdit ? "Edit Candidate Profile" : "Create a Candidate Profile")
+</h2>
+
+<div class="card upsert-card shadow-sm border-0">
+    <div class="card-body">
+        <form asp-action="Upsert" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <input type="hidden" name="candidateId" value="@Model.Candidate.CandidateId" />
+
+            @if (isEdit)
+            {
+                @Html.HiddenFor(m => m.Candidate.CandidateId)
+            }
+
+            <!-- Personal Information -->
+            <h4 class="section-title">Personal Information</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Candidate.CadidateName" class="form-label"></label>
+                    <input asp-for="Candidate.CadidateName" class="form-control soft-input" />
+                    <span asp-validation-for="Candidate.CadidateName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Candidate.CandidateEmail" class="form-label"></label>
+                    <input asp-for="Candidate.CandidateEmail" type="email" class="form-control soft-input" />
+                    <span asp-validation-for="Candidate.CandidateEmail" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Candidate.CandidatePhone" class="form-label"></label>
+                    <input asp-for="Candidate.CandidatePhone" class="form-control soft-input" />
+                    <span asp-validation-for="Candidate.CandidatePhone" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Candidate.CandidateGender" class="form-label"></label>
+                    <select asp-for="Candidate.CandidateGender" class="form-select soft-input">
+                        <option disabled selected>-- Select Gender --</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <span asp-validation-for="Candidate.CandidateGender" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="Candidate.CandidateAddress" class="form-label"></label>
+                    <textarea asp-for="Candidate.CandidateAddress" class="form-control soft-input"></textarea>
+                    <span asp-validation-for="Candidate.CandidateAddress" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Job Information -->
+            <h4 class="section-title">Job Information</h4>
+            <hr />
+            <div class="mb-3">
+                <label asp-for="Candidate.SkillSets" class="form-label"></label>
+                <input asp-for="Candidate.SkillSets" class="form-control soft-input" />
+                <span asp-validation-for="Candidate.SkillSets" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Candidate.JobDescription" class="form-label"></label>
+                <textarea asp-for="Candidate.JobDescription" class="form-control soft-input"></textarea>
+                <span asp-validation-for="Candidate.JobDescription" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Candidate.JobId" class="form-label"></label>
+                <select asp-for="Candidate.JobId" asp-items="@Model.JobList" class="form-select soft-input">
+                    <option disabled selected>-- Select Job Position --</option>
+                </select>
+                <span asp-validation-for="Candidate.JobId" class="text-danger"></span>
+            </div>
+
+            <!-- Interview Details -->
+            <h4 class="section-title">Interview Details</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Candidate.InterviewDate" class="form-label"></label>
+                    <input asp-for="Candidate.InterviewDate" type="date" class="form-control soft-input" />
+                    <span asp-validation-for="Candidate.InterviewDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Candidate.Interviewer" class="form-label"></label>
+                    <input asp-for="Candidate.Interviewer" class="form-control soft-input" />
+                    <span asp-validation-for="Candidate.Interviewer" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Status Flags -->
+            <h4 class="section-title">Application Status</h4>
+            <div class="form-check mb-2">
+                <input asp-for="Candidate.IsPreviouslyAttended" type="checkbox" class="form-check-input" />
+                <label asp-for="Candidate.IsPreviouslyAttended" class="form-check-label"></label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input asp-for="Candidate.IsUnattended" type="checkbox" class="form-check-input" />
+                <label asp-for="Candidate.IsUnattended" class="form-check-label"></label>
+            </div>
+
+            <div class="form-check mb-2">
+                <input asp-for="Candidate.IsSelected" type="checkbox" class="form-check-input" />
+                <label asp-for="Candidate.IsSelected" class="form-check-label"></label>
+            </div>
+
+
+            <!-- Attachments -->
+            <h4 class="section-title">Attachments</h4>
+            <hr />
+            <div class="mb-3">
+                <label class="form-label fw-bold">Upload CV / Profile</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-file-earmark-person"></i></span>
+                    <input asp-for="Candidate.ProfilePath" name="file" type="file" class="form-control" />
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.Candidate?.ProfilePath))
+            {
+                <div class="mt-3">
+                    <h6 class="fw-bold">Current CV:</h6>
+
+                    @if (Model.Candidate.ProfilePath.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <iframe src="@Url.Content(Model.Candidate.ProfilePath)"
+                                width="100%" height="500px"
+                                style="border:1px solid #ccc; border-radius:8px;">
+                        </iframe>
+                    }
+                    else if (Model.Candidate.ProfilePath.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                    Model.Candidate.ProfilePath.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+                    Model.Candidate.ProfilePath.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <img src="@Url.Content(Model.Candidate.ProfilePath)"
+                             alt="CV Preview"
+                             class="img-fluid rounded shadow-sm"
+                             style="max-height:500px;" />
+                    }
+                    else
+                    {
+                        <p class="text-muted">Preview not available for this file type.</p>
+                    }
+
+                    <a asp-action="DownloadFile"
+                       asp-route-filePath="@Model.Candidate.ProfilePath"
+                       class="btn btn-soft-secondary mt-2">
+                        <i class="bi bi-download"></i> Download CV
+                    </a>
+                </div>
+            }
+
+
+            <!-- Actions -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-soft-primary me-2">
+                    <i class="bi @(isEdit ? "bi-pencil-square" : "bi-send")"></i>
+                    @(isEdit ? "Update Profile" : "Submit Application")
+                </button>
+
+                <a asp-action="Index" class="btn btn-soft-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </form>
+
+        <!-- Notify HR Button -->
+        @if (Model.Candidate?.CandidateId > 0 && Model.Candidate.IsSelected ==true)
+        {
+            <div class="text-center mt-3">
+                <form asp-action="NotifyHR" method="post">
+                    <input type="hidden" name="candidateId" value="@Model.Candidate.CandidateId" />
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-person-check"></i> Notify HR for Onboarding
+                    </button>
+                </form>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    body {
+        background: #f8fafc;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        color: #5a6ea6;
+    }
+
+    .upsert-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+        color: #4a6fa5;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .soft-input {
+        border-radius: 10px;
+        border: 1px solid #d6d9e6;
+        transition: all 0.3s ease;
+    }
+
+    .soft-input:focus {
+        border-color: #a3bffa;
+        box-shadow: 0 0 0 0.2rem rgba(163,191,250,0.25);
+        outline: none;
+    }
+
+    .btn-soft-primary {
+        background: #a3bffa;
+        color: #fff;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+    .btn-soft-primary:hover {
+        background: #7da2f7;
+        color: #fff;
+    }
+
+    .btn-soft-secondary {
+        background: #e2e8f0;
+        color: #475569;
+        border-radius: 8px;
+        transition: 0.3s ease;
+    }
+
+    .btn-soft-secondary:hover {
+        background: #cbd5e1;
+        color: #334155;
+    }
+
+    .btn-success {
+        border-radius: 8px;
+        padding: 8px 16px;
+    }
+</style>
+

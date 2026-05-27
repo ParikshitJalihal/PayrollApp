@@ -1,0 +1,105 @@
+﻿@using HCM.Models.Models
+@model HCM.Models.ViewModels.EmployeeVM
+@{
+    // Protect against Model==null and nested nulls.
+    var vm = Model ?? new HCM.Models.ViewModels.EmployeeVM();
+    var employee = vm.Employee ?? new Employee();
+    bool isEdit = employee.EmployeeId > 0;
+}
+
+<h2 class="mb-4 text-center text-primary fw-bold">
+    @(isEdit ? "Edit Employee Profile" : "Create Employee Profile")
+</h2>
+
+
+
+<div class="card upsert-card shadow-sm border-0">
+    <div class="card-body">
+        <form asp-action="EmployeeUpsert" method="post" class="needs-validation" novalidate>
+            
+            <input asp-for="Employee.EmployeeId" type="hidden" />
+            <input asp-for="Employee.CandidateId" type="hidden"/>
+            <!-- Personal Information -->
+            <h4 class="section-title">Personal Information</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Employee.EmployeeName" class="form-label"></label>
+                    <input asp-for="Employee.EmployeeName" class="form-control soft-input" />
+                    <span asp-validation-for="Employee.EmployeeName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Employee.Email" class="form-label"></label>
+                    <input asp-for="Employee.Email" type="email" class="form-control soft-input" />
+                    <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Employee.Phone" class="form-label"></label>
+                    <input asp-for="Employee.Phone" class="form-control soft-input" />
+                    <span asp-validation-for="Employee.Phone" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Employee.Gender" class="form-label"></label>
+                    <select asp-for="Employee.Gender" class="form-select soft-input">
+                        <option disabled selected>-- Select Gender --</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                    <span asp-validation-for="Employee.Gender" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Job Information -->
+            <h4 class="section-title">Job Information</h4>
+            <hr />
+            <div class="mb-3">
+                <label asp-for="Employee.JobId" class="form-label"></label>
+                <select asp-for="Employee.JobId"
+                        asp-items="@Model.JobList"
+                        class="form-select soft-input">
+                    <option disabled selected>-- Select Job Position --</option>
+                </select>
+                <span asp-validation-for="Employee.JobId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Employee.Department" class="form-label"></label>
+                <input asp-for="Employee.Department" class="form-control soft-input" />
+                <span asp-validation-for="Employee.Department" class="text-danger"></span>
+            </div>
+
+            <!-- Onboarding Details -->
+            <h4 class="section-title">Onboarding Details</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Employee.JoiningDate" class="form-label"></label>
+                    <input asp-for="Employee.JoiningDate" type="date" class="form-control soft-input" />
+                    <span asp-validation-for="Employee.JoiningDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Employee.EmployeeCode" class="form-label"></label>
+                    <input asp-for="Employee.EmployeeCode" class="form-control soft-input" />
+                    <span asp-validation-for="Employee.EmployeeCode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-soft-primary me-2">
+                    <i class="bi @(isEdit ? "bi-pencil-square" : "bi-person-plus")"></i>
+                    @(isEdit ? "Update Employee" : "Create Employee")
+                </button>
+
+                <a asp-action="IndexEmployee" class="btn btn-soft-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Employee List
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

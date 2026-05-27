@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HCM.Models.Models.TimeSheetEntry>
+
+@{
+    ViewData["Title"] = "TimeSheet Entries";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="text-secondary">TimeSheet Entries</h3>
+        <!-- Normal redirect to Create -->
+        <a asp-action="Create" asp-area="Employee" asp-controller="TimeSheetEntry" class="btn btn-primary">
+            + New Entry
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-3">
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0 align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Date</th>
+                        <th>Hours</th>
+                        <th>Task</th>
+                        <th>SubTask</th>
+                        <th>Description</th>
+                        <th>Created</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.EntryDate.ToString("yyyy-MM-dd")</td>
+                            <td>@item.LogHours</td>
+                            <td>@item.Task.Name</td>
+                            <td>@item.SubTask</td>
+                            <td>@item.Description</td>
+                            <td>@item.CreatedDate.ToString("yyyy-MM-dd")</td>
+                            <td class="text-end">
+                                <a asp-action="Details" asp-route-id="@item?.EntryId" class="btn btn-sm btn-outline-info rounded-pill me-2">Details</a>
+                                <a asp-action="Edit" asp-route-id="@item?.EntryId" class="btn btn-sm btn-outline-primary rounded-pill me-2">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item?.EntryId" class="btn btn-sm btn-outline-danger rounded-pill">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
