@@ -15,3 +15,4 @@ D:\HRManagement\HCMWebApp\HCM.DataAccess\obj\Debug\net8.0\refint\HCM.DataAccess.
 D:\HRManagement\HCMWebApp\HCM.DataAccess\obj\Debug\net8.0\HCM.DataAccess.pdb
 D:\HRManagement\HCMWebApp\HCM.DataAccess\obj\Debug\net8.0\HCM.DataAccess.genruntimeconfig.cache
 D:\HRManagement\HCMWebApp\HCM.DataAccess\obj\Debug\net8.0\ref\HCM.DataAccess.dll
+D:\HRManagement\HCMWebApp\HCM.DataAccess\obj\Debug\net8.0\HCM.DataAccess.sourcelink.json

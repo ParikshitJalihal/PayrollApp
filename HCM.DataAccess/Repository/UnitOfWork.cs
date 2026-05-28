@@ -27,6 +27,7 @@ namespace HCM.DataAccess.Repository
 
         public ITimeSheetRepository TimeSheet { get; private set; }
         public ITaskRepository TaskRepo { get; set; }
+        public IComponentRepository ComponentRepository { get; set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -39,6 +40,7 @@ namespace HCM.DataAccess.Repository
             RequisiteDetails = new RequisiteDetailsRepository(_db);
             TimeSheet = new TimeSheetEntryRepository(_db);
             TaskRepo = new TaskItemRepository(_db);
+            ComponentRepository = new ComponentRepository(_db);
         }
 
         public void Save()

@@ -19,6 +19,7 @@ namespace HCM.DataAccess.Repository.IRepository
         IRequisiteDetailsRepository RequisiteDetails { get; }
         ITimeSheetRepository TimeSheet { get; }
         ITaskRepository TaskRepo { get; }
+        IComponentRepository ComponentRepository { get; }
 
         //IInterviewRepository Interview { get; }
         //IEmployeeRepository Employee { get; }

@@ -15,3 +15,4 @@ D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.dll
 D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\refint\HCM.Services.dll
 D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.pdb
 D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\ref\HCM.Services.dll
+D:\HRManagement\HCMWebApp\HCM.Services\obj\Debug\net8.0\HCM.Services.sourcelink.json

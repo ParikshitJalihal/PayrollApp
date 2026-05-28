@@ -1,0 +1,124 @@
+﻿@model HCM.Models.ViewModels.ComponentVM
+
+@{
+    ViewData["Title"] = "Create Pay Component";
+}
+
+<div class="container mt-4">
+    <h2 class="text-primary fw-semibold mb-3">
+        <i class="bi bi-cash-stack me-2"></i> Create Pay Component
+    </h2>
+    <hr />
+
+    <form asp-action="Create" method="post" class="needs-validation" novalidate>
+
+        <!-- General Information -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-light fw-semibold">
+                <i class="bi bi-info-circle me-1"></i> General Information
+            </div>
+            <div class="card-body row g-3">
+                <div class="col-md-6">
+                    <label asp-for="PayComponent.ComponentName" class="form-label"></label>
+                    <input asp-for="PayComponent.ComponentName" class="form-control" placeholder="Enter component name" />
+                    <span asp-validation-for="PayComponent.ComponentName" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="PayComponent.ComponentType" class="form-label"></label>
+                    <select asp-for="PayComponent.ComponentType" class="form-select">
+                        <option value="">-- Select Type --</option>
+                        <option value="Earning">Earning</option>
+                        <option value="Deduction">Deduction</option>
+                    </select>
+                    <span asp-validation-for="PayComponent.ComponentType" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="PayComponent.PayFormula" class="form-label"></label>
+                    <input asp-for="PayComponent.PayFormula" class="form-control" placeholder="e.g. Basic * 0.1" />
+                    <span asp-validation-for="PayComponent.PayFormula" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="PayComponent.PayTypeCode" class="form-label"></label>
+                    <input asp-for="PayComponent.PayTypeCode" class="form-control" placeholder="Enter type code" />
+                    <span asp-validation-for="PayComponent.PayTypeCode" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mapping -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-light fw-semibold">
+                <i class="bi bi-diagram-3 me-1"></i> Mapping
+            </div>
+            <div class="card-body row g-3">
+                <div class="col-md-6">
+                    <label asp-for="PayComponent.PayMapTo" class="form-label"></label>
+                    <select asp-for="PayComponent.PayMapTo" asp-items="Model.ComponentMapToList" class="form-select">
+                        <option value="">-- Select Mapping --</option>
+                    </select>
+                    <span asp-validation-for="PayComponent.PayMapTo" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="PayComponent.Description" class="form-label"></label>
+                    <textarea asp-for="PayComponent.Description" class="form-control" rows="2" placeholder="Enter description"></textarea>
+                    <span asp-validation-for="PayComponent.Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flags -->
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-light fw-semibold">
+                <i class="bi bi-toggle-on me-1"></i> Flags
+            </div>
+            <div class="card-body row g-3">
+                <div class="col-md-3">
+                    <div class="form-check form-switch">
+                        <input asp-for="PayComponent.IsStatutory" class="form-check-input" type="checkbox" />
+                        <label asp-for="PayComponent.IsStatutory" class="form-check-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check form-switch">
+                        <input asp-for="PayComponent.IsActive" class="form-check-input" type="checkbox" />
+                        <label asp-for="PayComponent.IsActive" class="form-check-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check form-switch">
+                        <input asp-for="PayComponent.IsPayable" class="form-check-input" type="checkbox" />
+                        <label asp-for="PayComponent.IsPayable" class="form-check-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check form-switch">
+                        <input asp-for="PayComponent.IsTaxable" class="form-check-input" type="checkbox" />
+                        <label asp-for="PayComponent.IsTaxable" class="form-check-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check form-switch">
+                        <input asp-for="PayComponent.hasPayComponentGroup" class="form-check-input" type="checkbox" />
+                        <label asp-for="PayComponent.hasPayComponentGroup" class="form-check-label"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-plus-circle me-1"></i> Create Pay Component
+            </button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">
+                <i class="bi bi-arrow-left me-1"></i> Back to List
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

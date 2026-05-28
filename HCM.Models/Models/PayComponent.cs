@@ -18,11 +18,11 @@ namespace HCM.Models.Models
         [Required]
         public string? PayFormula { get; set; }
         public string? PayTypeCode { get; set; }
-        public bool? IsStatutory { get; set; }
-        public bool? IsActive { get; set; }
-        public bool? IsPayable { get; set; }
-        public bool? IsTaxable { get; set; }
-        public string? hasPayComponentGroup { get; set; } // For grouping pay components
+        public bool IsStatutory { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsPayable { get; set; }
+        public bool IsTaxable { get; set; }
+        public bool hasPayComponentGroup { get; set; } // For grouping pay components
         public string? PayMapTo { get; set; } // For mapping to payroll systems like PF, ESI etc.
         public string? Description { get; set; }
         public string? MappingCode { get; set; } // For integration with external systems
