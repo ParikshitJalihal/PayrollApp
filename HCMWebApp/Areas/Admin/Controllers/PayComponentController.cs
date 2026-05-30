@@ -1,7 +1,9 @@
 ﻿using HCM.Models.Models;
 using HCM.Models.ViewModels;
 using HCM.Services.Interfaces;
+using HCM.Services.PayrollClient.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HCMWebApp.Areas.Admin.Controllers
 {
@@ -9,14 +11,15 @@ namespace HCMWebApp.Areas.Admin.Controllers
     public class PayComponentController : Controller
     {
 
-        private readonly IComponentService _componentService;
-        public PayComponentController(IComponentService componentService)
+        private readonly IPayrollClient _payrollClient;
+        public PayComponentController(IPayrollClient payrollClient)
         {
-            _componentService = componentService;
+            _payrollClient = payrollClient;
+           
         }
         public IActionResult Index()
         {
-            var components = _componentService.ListPayComponent();
+            var components = _payrollClient.GetAllAsync().Result;
             return View(components);
         }
 
@@ -27,7 +30,7 @@ namespace HCMWebApp.Areas.Admin.Controllers
                 PayComponent = new PayComponent()
             };
 
-            componentVM.ComponentMapToList = _componentService.GetComponentMapToList();
+            componentVM.ComponentMapToList = GetComponentMapToList();
             return View(componentVM);
         }
 
@@ -36,11 +39,22 @@ namespace HCMWebApp.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _componentService.UpSertPayComponent(componentVM.PayComponent);
+                var result = _payrollClient.UpsertAsync(componentVM.PayComponent);
                 return RedirectToAction(nameof(Index));
             }
-            componentVM.ComponentMapToList = _componentService.GetComponentMapToList();
+            componentVM.ComponentMapToList = GetComponentMapToList();
             return View(componentVM);
+        }
+
+        private List<SelectListItem> GetComponentMapToList()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem { Value = "1", Text = "Provident Fund" },
+                new SelectListItem { Value = "2", Text = "Employer PF" },
+                new SelectListItem { Value = "3", Text = "Reimbursement" },
+                new SelectListItem { Value = "4", Text = "Other" }
+            };
         }
 
 

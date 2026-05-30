@@ -6,16 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace HCM.Services.Implementations
 {
     public class AccountService : IAccountService
     {
-        public readonly IUnitOfWork _unitOfWork;
-        public AccountService(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        private readonly HttpClient _http;
+        private readonly IUnitOfWork _unitOfWork;
+        public AccountService(HttpClient http) => _http = http;
 
         public async Task AddAccountAsync(Account account)
         {

@@ -9,3 +9,4 @@ D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.dll
 D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\refint\HCM.Utilities.dll
 D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.pdb
 D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\ref\HCM.Utilities.dll
+D:\HRManagement\HCMWebApp\HCM.Utilities\obj\Debug\net8.0\HCM.Utilities.sourcelink.json

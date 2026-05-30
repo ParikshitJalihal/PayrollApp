@@ -14,4 +14,7 @@ namespace HCM.Services.Interfaces
         List<PayComponent> ListPayComponent();
         void UpSertPayComponent(PayComponent payComponent);
     }
+
+
+
 }

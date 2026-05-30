@@ -1,6 +1,7 @@
 ﻿using HCM.DataAccess.Repository.IRepository;
 using HCM.Models.Models;
 using HCM.Services.Interfaces;
+using HCM.Services.PayrollClient.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -10,43 +11,36 @@ using System.Threading.Tasks;
 
 namespace HCM.Services.Implementations
 {
-    public class ComponentService : IComponentService
+    public class ComponentServiceRemote : IComponentService
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public ComponentService(IUnitOfWork unitOfWork)
+        private readonly IPayrollClient _payrollClient;
+        public ComponentServiceRemote(IPayrollClient payrollClient)
         {
-            _unitOfWork = unitOfWork;
+            _payrollClient = payrollClient;
         }
 
+        // keep the original static mapping (same choices as original)
         public List<SelectListItem> GetComponentMapToList()
         {
-           List<SelectListItem> mapToList = new List<SelectListItem>()
-           {
+            return new List<SelectListItem>()
+            {
                 new SelectListItem { Value = "1", Text = "Provident Fund" },
                 new SelectListItem { Value = "2", Text = "Employer PF" },
                 new SelectListItem { Value = "3", Text = "Reimbursement" },
                 new SelectListItem { Value = "4", Text = "Other" }
-             };
-            return mapToList;
+            };
         }
 
+        // original interface is synchronous — block on the async client to remain backward compatible
         public List<PayComponent> ListPayComponent()
         {
-           List<PayComponent> payComponents =  _unitOfWork.ComponentRepository.GetAll().ToList();
-            return payComponents;
+            var items = _payrollClient.GetAllAsync().GetAwaiter().GetResult();
+            return items?.ToList() ?? new List<PayComponent>();
         }
 
         public void UpSertPayComponent(PayComponent payComponent)
         {
-            if (payComponent.PayComponentId == 0)
-            {
-                _unitOfWork.ComponentRepository.Add(payComponent);
-            }
-            else
-            {
-                _unitOfWork.ComponentRepository.Update(payComponent);
-            }
-            _unitOfWork.Save();
+            _payrollClient.UpsertAsync(payComponent).GetAwaiter().GetResult();
         }
     }
 }

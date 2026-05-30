@@ -2,6 +2,7 @@
 using HCM.Models.Models;
 using HCM.Models.ViewModels;
 using HCM.Services.Interfaces;
+using HCM.Services.PayrollClient.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,17 +12,22 @@ namespace HCMWebApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class EmployeeController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IEmployeeService _employeeService;
-        public EmployeeController(IUnitOfWork unitOfWork,IEmployeeService employeeservice)
+        private readonly IEmployeeClient _employeeClient;
+        private readonly IJobsClient _jobsClient;
+        private readonly ICandidateClient _candidateClient;
+        private readonly IRequisiteClient _requisiteClient;
+        public EmployeeController(IEmployeeClient employeeClient, IJobsClient jobsClient, ICandidateClient candidateClient, IRequisiteClient requisiteClient)
         {
-            _unitOfWork = unitOfWork;
-            _employeeService = employeeservice;
+
+            _employeeClient = employeeClient;
+            _jobsClient = jobsClient;
+            _candidateClient = candidateClient;
+            _requisiteClient = requisiteClient;
         }
 
         public IActionResult Index()
         {
-            var awaitingCandidates = _unitOfWork.Candidate.GetAll(i => i.OnboardingRequested, includeProperties: "Jobs");
+            var awaitingCandidates = _candidateClient.GetAllAsync().Result.Where(c => c.OnboardingRequested).ToList();
             return View(awaitingCandidates);
         }
 
@@ -29,7 +35,7 @@ namespace HCMWebApp.Areas.Admin.Controllers
         {
             EmployeeVM employeeVM = new()
             {
-                JobList = _unitOfWork.Jobs.GetAll().Select(jobList => new SelectListItem
+                JobList = _jobsClient.GetAllAsync().Result.Select(jobList => new SelectListItem
                 {
                     Value = jobList.JobId.ToString(),
                     Text = jobList.JobName
@@ -41,17 +47,17 @@ namespace HCMWebApp.Areas.Admin.Controllers
 
         public IActionResult EmployeeUpsert(int candidateId)
         {
-            var candidate = _unitOfWork.Candidate.Get(i => i.CandidateId == candidateId);
+            var candidate = _candidateClient.GetByIdAsync(candidateId).Result;
             if (candidate == null || !candidate.OnboardingRequested)
             {
                 return NotFound();
             }
 
-            var jobList = _unitOfWork.Jobs.GetAll().ToList();
+            var jobList = _jobsClient.GetAllAsync().Result.ToList();
 
             EmployeeVM employeeVM = new()
             {
-                JobList = _unitOfWork.Jobs.GetAll().Select(jobList => new SelectListItem
+                JobList = _jobsClient.GetAllAsync().Result.Select(jobList => new SelectListItem
                 {
                     Value = jobList.JobId.ToString(),
                     Text = jobList.JobName
@@ -90,11 +96,11 @@ namespace HCMWebApp.Areas.Admin.Controllers
             if (!ModelState.IsValid)
             {
                 // Re-populate JobList when returning to the view after validation errors
-                employeeVM.JobList = new SelectList(_unitOfWork.Jobs.GetAll(), "JobId", "JobTitle");
+                employeeVM.JobList = new SelectList(_jobsClient.GetAllAsync().Result, "JobId", "JobTitle");
                 return View(employeeVM);
             }
 
-            _employeeService.UpSertEmployee(employeeVM);
+            _employeeClient.UpdateAsync(employeeVM.Employee);
 
 
             return RedirectToAction(nameof(Index));
@@ -104,9 +110,18 @@ namespace HCMWebApp.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult IndexEmployee()
         {
-            var employees = _employeeService.ListEmployee();
+            var employees = _employeeClient.GetAllAsync().Result;
+            List<EmployeeVM> employeeVMs = new List<EmployeeVM>();
+            foreach( Employee emp in employees)
+            {
+                EmployeeVM employeeVM = new EmployeeVM()
+                {
+                    Employee = emp
+                };
+                employeeVMs.Add(employeeVM);
+            }
 
-            return View(employees);
+            return View(employeeVMs);
 
         }
 
@@ -116,20 +131,20 @@ namespace HCMWebApp.Areas.Admin.Controllers
             {
                 EmployeeVM employeeVM = new()
                 {
-                    JobList = _unitOfWork.Jobs.GetAll().Select(jobList => new SelectListItem
+                    JobList = _jobsClient.GetAllAsync().Result.Select(jobList => new SelectListItem
                     {
                         Value = jobList.JobId.ToString(),
                         Text = jobList.JobName
                     }),
 
-                    DepartmentList = _unitOfWork.RequisiteDetails.GetAll(includeProperties: "Requesites").
+                    DepartmentList = _requisiteClient.GetAllAsync().Result.
                     ToList().Where(e => e.Requesites?.ReqName == "Department").
                     Select(dept => new SelectListItem
                     {
                         Value = dept.RequisiteDetailsId.ToString(),
                         Text = dept.RequisiteValue
                     }).ToList(),
-                    ReportingManagerList = _unitOfWork.Employee.GetAll().
+                    ReportingManagerList = _employeeClient.GetAllAsync().Result.
                     ToList().
                     Where(e => e.isManager == true).
                     Select(e => e.EmployeeName).Distinct().
@@ -138,15 +153,14 @@ namespace HCMWebApp.Areas.Admin.Controllers
                         Value = manager,
                         Text = manager
                     }).ToList(),
-                    DesignationList = _unitOfWork.RequisiteDetails.GetAll(includeProperties: "Requesites").
-                    ToList().Where(e => e.Requesites?.ReqName == "Designation").
+                    DesignationList = _requisiteClient.GetAllAsync().Result.ToList().Where(e => e.Requesites?.ReqName == "Designation").
                     Select(dept => new SelectListItem
                     {
                         Value = dept.RequisiteDetailsId.ToString(),
                         Text = dept.RequisiteValue
                     }).ToList(),
 
-                    GenderList = _unitOfWork.RequisiteDetails.GetAll(includeProperties: "Requesites").
+                    GenderList = _requisiteClient.GetAllAsync().Result.
                     ToList().Where(e => e.Requesites?.ReqName == "Gender").
                     Select(dept => new SelectListItem
                     {
@@ -164,7 +178,7 @@ namespace HCMWebApp.Areas.Admin.Controllers
                 else
                 {
                     // Update
-                    employeeVM.Employee = _unitOfWork.Employee.Get(u => u.EmployeeId == id);
+                    employeeVM.Employee = _employeeClient.GetByIdAsync(id).Result;
                     if (employeeVM.Employee == null)
                     {
                         return NotFound();
@@ -187,7 +201,7 @@ namespace HCMWebApp.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var employee = _unitOfWork.Employee.Get(u => u.EmployeeId == id);
+            var employee = _employeeClient.GetByIdAsync(id).Result;
             if (employee == null)
             {
                 return NotFound();
@@ -198,13 +212,13 @@ namespace HCMWebApp.Areas.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int? id)
         {
-            var employee = _unitOfWork.Employee.Get(u => u.EmployeeId == id);
+            var employee = _employeeClient.GetByIdAsync(id).Result;
             if (employee == null)
             {
                 return NotFound();
             }
-            _unitOfWork.Employee.Delete(employee);
-            _unitOfWork.Save();
+            //_unitOfWork.Employee.Delete(employee);
+            //_unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
     }

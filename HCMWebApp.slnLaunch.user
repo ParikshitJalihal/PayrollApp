@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "HCMWebApp\\HCMWebApp.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Payroll.API\\Payroll.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

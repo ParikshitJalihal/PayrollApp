@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCM.Models", "HCM.Models\HC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCM.Services", "HCM.Services\HCM.Services.csproj", "{B44F0AA3-E10C-4662-8FF8-28196785E3DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.API", "Payroll.API\Payroll.API.csproj", "{2FFC89C7-D278-40A5-B3EF-4D46EBEBFA4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B44F0AA3-E10C-4662-8FF8-28196785E3DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44F0AA3-E10C-4662-8FF8-28196785E3DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44F0AA3-E10C-4662-8FF8-28196785E3DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFC89C7-D278-40A5-B3EF-4D46EBEBFA4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFC89C7-D278-40A5-B3EF-4D46EBEBFA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFC89C7-D278-40A5-B3EF-4D46EBEBFA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFC89C7-D278-40A5-B3EF-4D46EBEBFA4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

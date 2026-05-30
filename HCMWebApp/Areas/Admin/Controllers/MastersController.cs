@@ -1,5 +1,6 @@
 ﻿using HCM.DataAccess.Repository.IRepository;
 using HCM.Models.Models;
+using HCM.Services.PayrollClient.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -8,23 +9,23 @@ namespace HCMWebApp.Areas.Admin.Controllers
     [Area("Admin")]
     public class MastersController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public MastersController(IUnitOfWork unitOfWork)
+        private readonly IRequisiteClient _reqClient;
+        public MastersController(IRequisiteClient reqClient)
         {
-            _unitOfWork = unitOfWork;
+            _reqClient = reqClient;
         }
         public IActionResult Index()
         {
-            IEnumerable<RequisiteDetails> requisistes = _unitOfWork.RequisiteDetails.GetAll(includeProperties : "Requesites");
+            IEnumerable<RequisiteDetails> requisistes = _reqClient.GetAllAsync().Result;
             return View(requisistes);
         }
 
-        
+
 
         [HttpGet]
         public IActionResult CreateMaster()
         {
-            var lstRequests = _unitOfWork.Requesites.GetAll().ToList();
+            var lstRequests = _reqClient.GetRequesites().Result;
             var selectListItems = lstRequests.Select(r => new SelectListItem
             {
                 Text = r.ReqName,
@@ -46,7 +47,7 @@ namespace HCMWebApp.Areas.Admin.Controllers
             if (!ModelState.IsValid)
             {
                 // reload dropdown if validation fails
-                var lstRequests = _unitOfWork.Requesites.GetAll().ToList();
+                var lstRequests = _reqClient.GetRequesites().Result;
                 var selectListItems = lstRequests.Select(r => new SelectListItem
                 {
                     Text = r.ReqName,
@@ -64,9 +65,12 @@ namespace HCMWebApp.Areas.Admin.Controllers
                 RequisiteValue = MasterName,
                 CreatedDate = DateTime.Now
             };
-
-            _unitOfWork.RequisiteDetails.Add(masterEntity);
-            _unitOfWork.Save();
+            if (masterEntity.RequisiteDetailsId == 0)
+            {
+                _reqClient.AddAsync(masterEntity);
+            }
+            else
+                _reqClient.UpdateAsync(masterEntity);
 
             TempData["success"] = "Master created successfully!";
             return RedirectToAction("Index"); // or wherever you list masters
