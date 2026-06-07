@@ -1,4 +1,5 @@
 ﻿using HCM.Models.Models;
+using HCM.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,8 @@ namespace HCM.Services.PayrollClient.Interfaces
     {
         Task<IEnumerable<PayComponent>> GetAllAsync();
         Task UpsertAsync(PayComponent dto);
+
+        Task<IEnumerable<EmployeePay>> GetEmployeePayComponents();
+        Task<IEnumerable<PayComponentModel>> GetEmployeePaysAsync(int value);
     }
 }

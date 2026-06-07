@@ -16,13 +16,16 @@ namespace HCMWebApp.Areas.Admin.Controllers
         private readonly IJobsClient _jobsClient;
         private readonly ICandidateClient _candidateClient;
         private readonly IRequisiteClient _requisiteClient;
-        public EmployeeController(IEmployeeClient employeeClient, IJobsClient jobsClient, ICandidateClient candidateClient, IRequisiteClient requisiteClient)
+        private readonly IPayrollClient _payrollClient;
+        public EmployeeController(IEmployeeClient employeeClient, 
+            IJobsClient jobsClient, ICandidateClient candidateClient, IRequisiteClient requisiteClient,IPayrollClient payrollClient)
         {
 
             _employeeClient = employeeClient;
             _jobsClient = jobsClient;
             _candidateClient = candidateClient;
             _requisiteClient = requisiteClient;
+            _payrollClient = payrollClient;
         }
 
         public IActionResult Index()
@@ -95,24 +98,42 @@ namespace HCMWebApp.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
             {
-                // Re-populate JobList when returning to the view after validation errors
                 employeeVM.JobList = new SelectList(_jobsClient.GetAllAsync().Result, "JobId", "JobTitle");
                 return View(employeeVM);
             }
 
-            _employeeClient.UpdateAsync(employeeVM.Employee);
+            // Attach EmployeePay rows directly to Employee
+            if (employeeVM.PayComponents != null && employeeVM.PayComponents.Count > 0)
+            {
+                foreach (var payComponent in employeeVM.PayComponents)
+                {
+                    employeeVM.Employee.EmployeePayments.Add(new EmployeePay
+                    {
+                        PayComponentId = payComponent.PayComponentId,
+                        MonthlyAmount = payComponent.MonthlyAmount,
+                        AnnualAmount = payComponent.MonthlyAmount * 12,
+                        EffectiveDate = employeeVM.Employee.JoiningDate,
+                        EffectiveEndDate = null
+                    });
+                }
+            }
 
-
+            // Save Employee + EmployeePays in one transaction
+            _employeeClient.AddAsync(employeeVM.Employee);
+          
             return RedirectToAction(nameof(Index));
         }
+
 
 
         [HttpGet]
         public IActionResult IndexEmployee()
         {
+
             var employees = _employeeClient.GetAllAsync().Result;
             List<EmployeeVM> employeeVMs = new List<EmployeeVM>();
-            foreach( Employee emp in employees)
+
+            foreach (HCM.Models.Models.Employee emp in employees)
             {
                 EmployeeVM employeeVM = new EmployeeVM()
                 {
@@ -167,17 +188,41 @@ namespace HCMWebApp.Areas.Admin.Controllers
                         Value = dept.RequisiteDetailsId.ToString(),
                         Text = dept.RequisiteValue
                     }).ToList(),
+                    PayComponents = new List<PayComponentModel>(),
 
                     Employee = new HCM.Models.Models.Employee()
                 };
                 if (id == null || id == 0)
                 {
+                    List<PayComponentModel> payComponents = new List<PayComponentModel>();
+                    var payComponent = _payrollClient.GetAllAsync().Result.ToList();
+                    foreach(PayComponent objPayComponent in payComponent)
+                    {
+                        PayComponentModel payComponentModel = new PayComponentModel()
+                        {
+                            PayComponentId = objPayComponent.PayComponentId,
+                            PayCode = objPayComponent.PayTypeCode,
+                            ComponentName = objPayComponent.ComponentName,
+                            Amount = 0
+                        };
+                        payComponents.Add(payComponentModel);
+                    }
+                    employeeVM.PayComponents = payComponents;
                     // Create
                     return View(employeeVM);
                 }
                 else
                 {
                     // Update
+                    employeeVM.PayComponents = _payrollClient.GetEmployeePaysAsync(id.Value).Result.Select(ep => new PayComponentModel
+                    {
+                        PayComponentId = ep.PayComponentId,
+                        PayCode = ep.PayCode,
+                        ComponentName = ep.ComponentName,
+                        Amount = ep.Amount,
+                        AnnualAmount = ep.AnnualAmount,
+                        MonthlyAmount = ep.MonthlyAmount
+                    }).ToList();
                     employeeVM.Employee = _employeeClient.GetByIdAsync(id).Result;
                     if (employeeVM.Employee == null)
                     {

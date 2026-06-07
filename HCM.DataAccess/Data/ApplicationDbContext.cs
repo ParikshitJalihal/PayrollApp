@@ -24,6 +24,9 @@ namespace HCM.DataAccess.Data
 
         public DbSet<TimeSheetEntry> TimeSheetEntries { get; set; }
         public DbSet<TaskItem> TaskItems { get; set; }
+        public DbSet<EmployeePay> EmployeePayment { get; set; }
+
+        public DbSet<PayrollResult> PayrollResults { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -56,6 +59,7 @@ namespace HCM.DataAccess.Data
            .HasMany(a => a.LedgerEntries)
            .WithOne(le => le.Account)
            .HasForeignKey(le => le.AccountId);
+
 
             modelBuilder.Entity<PayComponent>().HasData(
      new PayComponent
@@ -104,6 +108,17 @@ namespace HCM.DataAccess.Data
          ModifiedDate = null
      }
  );
+
+            modelBuilder.Entity<Employee>()
+    .HasKey(e => e.EmployeeId);
+
+            modelBuilder.Entity<EmployeePay>()
+                .HasKey(ep => ep.EmployeePayId);
+
+            modelBuilder.Entity<EmployeePay>()
+                .HasOne(ep => ep.Employee)
+                .WithMany(e => e.EmployeePayments)
+                .HasForeignKey(ep => ep.EmployeeId);
 
         }
     }

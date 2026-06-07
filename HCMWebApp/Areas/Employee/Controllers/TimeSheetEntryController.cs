@@ -1,96 +1,66 @@
 ﻿using HCM.DataAccess.Repository.IRepository;
 using HCM.Models.Models;
+using HCM.Models.ViewModels;
+using HCM.Services.PayrollClient.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Payroll.API.Controllers
+namespace HCMWebApp.Areas.Employee.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class TimeSheetEntryController : ControllerBase
+    [Area("Employee")]
+    public class TimeSheetEntryController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public TimeSheetEntryController(IUnitOfWork unitOfWork) => _unitOfWork = unitOfWork;
-
-        // GET: api/TimeSheetEntry
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<TimeSheetEntry>>> GetAll()
+        private readonly IAttendanceClient _attendanceClient;
+        public TimeSheetEntryController(IAttendanceClient attendanceClient)
         {
-            var entries = (await _unitOfWork.TimeSheet.GetAllsAsync()).ToList();
-
-            // populate Task navigation (best-effort)
-            foreach (var e in entries)
+            _attendanceClient = attendanceClient;
+        }
+        public IActionResult Index()
+        {
+            List<TimeSheetEntry> timeSheetEntries = _attendanceClient.GetAllAsync().Result
+                .ToList();
+            timeSheetEntries.ForEach(entry =>
             {
-                if (e.TaskId != 0)
-                    e.Task = await _unitOfWork.TaskRepo.GetByIdAsync(e.TaskId);
-            }
+                entry.Task = _attendanceClient.GetTaskItem(entry.TaskId).Result;
+            });
 
-            return Ok(entries);
+            return View(timeSheetEntries);
         }
 
-        // GET: api/TimeSheetEntry/5
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<TimeSheetEntry>> GetById(int id)
+        public IActionResult Create()
         {
-            var entry = await _unitOfWork.TimeSheet.GetByIdAsync(id);
-            if (entry == null) return NotFound();
+            var timeSheetEntryView = new TimeSheetEntryView
+            {
+                TaskList = _attendanceClient.GetAllTaskItems().Result
+                    .Select(t => new SelectListItem { Value = t.TaskId.ToString(), Text = t.Name })
+                    .ToList()
+            };
 
-            if (entry.TaskId != 0)
-                entry.Task = await _unitOfWork.TaskRepo.GetByIdAsync(entry.TaskId);
-
-            return Ok(entry);
+            return View("Create", timeSheetEntryView);
         }
 
-        // POST: api/TimeSheetEntry
+
         [HttpPost]
-        public async Task<ActionResult<TimeSheetEntry>> Create([FromBody] TimeSheetEntry dto)
+        public IActionResult Create(TimeSheetEntryView? timeSheetEntry)
         {
-            if (dto == null) return BadRequest();
 
-            dto.CreatedDate = dto.CreatedDate == default ? System.DateTime.UtcNow : dto.CreatedDate;
+            if (ModelState.IsValid)
+            {
+                timeSheetEntry.TimeSheetEntry = new TimeSheetEntry
+                {
+                    EntryDate = timeSheetEntry.EntryDate,
+                    LogHours = (decimal)timeSheetEntry.LogHours.Hour + ((decimal)timeSheetEntry.LogHours.Minute / 60),
+                    TaskId = int.Parse(timeSheetEntry.TaskName), // Assuming TaskName holds the TaskId as string
+                    SubTask = timeSheetEntry.SubTask,
+                    Description = timeSheetEntry.Description,
+                    CreatedDate = DateTime.UtcNow
+                };
+                _attendanceClient.UpsertEntry(timeSheetEntry.TimeSheetEntry).Wait();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(timeSheetEntry);
 
-            await _unitOfWork.TimeSheet.AddAsync(dto);
-            await _unitOfWork.TimeSheet.SaveAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = dto.EntryId }, dto);
-        }
-
-        // PUT: api/TimeSheetEntry/5
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, [FromBody] TimeSheetEntry dto)
-        {
-            if (dto == null || id != dto.EntryId) return BadRequest();
-
-            var existing = await _unitOfWork.TimeSheet.GetByIdAsync(id);
-            if (existing == null) return NotFound();
-
-            // map updatable fields
-            existing.EntryDate = dto.EntryDate;
-            existing.LogHours = dto.LogHours;
-            existing.TaskId = dto.TaskId;
-            existing.SubTask = dto.SubTask;
-            existing.Description = dto.Description;
-            existing.ModifiedDate = System.DateTime.UtcNow;
-
-            _unitOfWork.TimeSheet.Update(existing);
-            await _unitOfWork.TimeSheet.SaveAsync();
-
-            return NoContent();
-        }
-
-        // DELETE: api/TimeSheetEntry/5
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var existing = await _unitOfWork.TimeSheet.GetByIdAsync(id);
-            if (existing == null) return NotFound();
-
-            _unitOfWork.TimeSheet.Delete(existing);
-            await _unitOfWork.TimeSheet.SaveAsync();
-
-            return NoContent();
         }
     }
 }

@@ -3555,13 +3555,24 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "HCM.DataAccess": "1.0.0",
-          "HCM.Models": "1.0.0"
+          "HCM.Models": "1.0.0",
+          "HCM.Utilities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/HCM.Services.dll": {}
         },
         "runtime": {
           "bin/placeholder/HCM.Services.dll": {}
+        }
+      },
+      "HCM.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/HCM.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HCM.Utilities.dll": {}
         }
       }
     }
@@ -9252,6 +9263,11 @@
       "type": "project",
       "path": "../HCM.Services/HCM.Services.csproj",
       "msbuildProject": "../HCM.Services/HCM.Services.csproj"
+    },
+    "HCM.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../HCM.Utilities/HCM.Utilities.csproj",
+      "msbuildProject": "../HCM.Utilities/HCM.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {

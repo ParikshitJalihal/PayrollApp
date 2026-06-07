@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace HCM.Services.PayrollClient.Implementations
@@ -31,6 +32,8 @@ namespace HCM.Services.PayrollClient.Implementations
         public async Task AddAsync(Employee employee)
         {
             var resp = await _http.PostAsJsonAsync("api/Employee", employee);
+            var json = JsonSerializer.Serialize(employee);
+            Console.WriteLine(json);
             resp.EnsureSuccessStatusCode();
         }
 

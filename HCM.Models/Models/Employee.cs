@@ -47,5 +47,7 @@ namespace HCM.Models.Models
         [Display(Name ="Designation :")]
 
         public int? DesignationId { get; set; }
+
+        public ICollection<EmployeePay> EmployeePayments { get; set; } = new List<EmployeePay>();
     }
 }

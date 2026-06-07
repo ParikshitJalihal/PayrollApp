@@ -2364,10 +2364,19 @@
       "HCM.Services/1.0.0": {
         "dependencies": {
           "HCM.DataAccess": "1.0.0",
-          "HCM.Models": "1.0.0"
+          "HCM.Models": "1.0.0",
+          "HCM.Utilities": "1.0.0"
         },
         "runtime": {
           "HCM.Services.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "HCM.Utilities/1.0.0": {
+        "runtime": {
+          "HCM.Utilities.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -3806,6 +3815,11 @@
       "sha512": ""
     },
     "HCM.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HCM.Utilities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

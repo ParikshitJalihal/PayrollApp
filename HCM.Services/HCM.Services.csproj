@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HCM.DataAccess\HCM.DataAccess.csproj" />
     <ProjectReference Include="..\HCM.Models\HCM.Models.csproj" />
+    <ProjectReference Include="..\HCM.Utilities\HCM.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

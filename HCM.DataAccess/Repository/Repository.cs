@@ -22,7 +22,9 @@ namespace HCM.DataAccess.Repository
             _dbSet = db.Set<T>();
             _db.Candidates.Include(c => c.Jobs).Include(c => c.JobId);
             _db.Employees.Include(e => e.Jobs).Include(e => e.JobId);
-            _db.Employees.Include(e=>e.Candidate).Include(e=>e.CandidateId);
+            _db.Employees.Include(e => e.Candidate).Include(e => e.CandidateId);
+            _db.EmployeePayment.Include(ep => ep.Employee).Include(ep => ep.EmployeeId).
+                Include(ep => ep.PayComponent).Include(ep => ep.PayComponentId);
             _db.RequisiteDetails.Include(r => r.Requesites).Include(r => r.ReqId);
         }
 
@@ -33,7 +35,7 @@ namespace HCM.DataAccess.Repository
 
         public async Task AddAsync(T account)
         {
-           await _dbSet.AddAsync(account);
+            await _dbSet.AddAsync(account);
         }
 
         public void Delete(T entity)
@@ -87,9 +89,9 @@ namespace HCM.DataAccess.Repository
 
         public Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            IQueryable<T> queryable = _dbSet;
+            return queryable.FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
         }
-
         public async Task SaveAsync()
         {
             await _db.SaveChangesAsync();
@@ -100,6 +102,6 @@ namespace HCM.DataAccess.Repository
             _dbSet.Update(entity);
         }
 
-        
+
     }
 }

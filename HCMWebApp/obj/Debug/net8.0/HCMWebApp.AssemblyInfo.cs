@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HCMWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb678e26fb46e134341fe728827ddef1381d11e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7e5a9a01e0cba2d45ec01ce238894d48186901e")]
 [assembly: System.Reflection.AssemblyProductAttribute("HCMWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HCMWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

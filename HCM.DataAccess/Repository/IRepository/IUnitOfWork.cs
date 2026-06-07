@@ -21,6 +21,10 @@ namespace HCM.DataAccess.Repository.IRepository
         ITaskRepository TaskRepo { get; }
         IComponentRepository ComponentRepository { get; }
 
+        IEmployeePayRepository EmployeePayRepository { get; }
+
+        IPayrollResultsRepository PayrollResultsRepository { get; }
+
         //IInterviewRepository Interview { get; }
         //IEmployeeRepository Employee { get; }
         void Save();

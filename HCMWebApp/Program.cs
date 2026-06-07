@@ -66,7 +66,26 @@ builder.Services.AddHttpClient<IRequisiteClient, RequisiteClient>(client =>
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
+builder.Services.AddHttpClient<IAttendanceClient, AttendanceClient>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["Services:PayrollApi"] ?? "https://localhost:7224/");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+});
 
+// Add services
+builder.Services.AddControllers();
+
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5174") // React dev server
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 // Register remote adapter as the IComponentService implementation
 builder.Services.AddScoped<IComponentService, ComponentServiceRemote>();
 
@@ -88,7 +107,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+// Use CORS
+app.UseCors("AllowReactApp");
 
+app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllerRoute(

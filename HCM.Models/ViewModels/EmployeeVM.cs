@@ -33,6 +33,7 @@ namespace HCM.Models.ViewModels
         public string? EmployeePhone { get; set; }
         public string? EmployeeEmail { get; set; }
         public DateTime? JoiningDate { get; set; }
+        public List<PayComponentModel> PayComponents { get; set; }
 
     }
 }

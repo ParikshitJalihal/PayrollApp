@@ -1,4 +1,5 @@
 ﻿using HCM.Models.Models;
+using HCM.Models.ViewModels;
 using HCM.Services.PayrollClient.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,18 @@ namespace HCM.Services.PayrollClient.Implementations
         {
             var res = await _http.GetFromJsonAsync<IEnumerable<PayComponent>>("api/PayComponent");
             return res ?? Enumerable.Empty<PayComponent>();
+        }
+
+        public Task<IEnumerable<EmployeePay>> GetEmployeePayComponents()
+        {
+           var res = _http.GetFromJsonAsync<IEnumerable<EmployeePay>>("api/PayComponent/EmployeePays");
+            return res ?? Task.FromResult(Enumerable.Empty<EmployeePay>());
+        }
+
+        public Task<IEnumerable<PayComponentModel>> GetEmployeePaysAsync(int employeeId)
+        {            var res = _http.GetFromJsonAsync<IEnumerable<PayComponentModel>>($"api/PayComponent/Employee/{employeeId}/Pays");
+
+            return res ?? Task.FromResult(Enumerable.Empty<PayComponentModel>());
         }
 
         public async Task UpsertAsync(PayComponent dto)

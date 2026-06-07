@@ -297,3 +297,5 @@ D:\HRManagement\HCMWebApp\HCMWebApp\obj\Debug\net8.0\HCMWebApp.pdb
 D:\HRManagement\HCMWebApp\HCMWebApp\obj\Debug\net8.0\HCMWebApp.genruntimeconfig.cache
 D:\HRManagement\HCMWebApp\HCMWebApp\obj\Debug\net8.0\ref\HCMWebApp.dll
 D:\HRManagement\HCMWebApp\HCMWebApp\obj\Debug\net8.0\HCMWebApp.sourcelink.json
+D:\HRManagement\HCMWebApp\HCMWebApp\bin\Debug\net8.0\HCM.Utilities.dll
+D:\HRManagement\HCMWebApp\HCMWebApp\bin\Debug\net8.0\HCM.Utilities.pdb

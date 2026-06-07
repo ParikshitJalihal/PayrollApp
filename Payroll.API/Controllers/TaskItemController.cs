@@ -23,7 +23,7 @@ namespace Payroll.API.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<TaskItem>> Get(int id)
         {
-            var item = await _unitOfWork.TaskRepo.GetByIdAsync(id);
+            var item =  _unitOfWork.TaskRepo.Get(i=>i.TaskId == id);
             if (item == null) return NotFound();
             return Ok(item);
         }
